@@ -1,0 +1,29 @@
+clear
+N='\033[0m'
+R='\033[0;31m'
+G='\033[0;32m'
+O='\033[0;33m'
+  echo -e "
+
+${G}██████     ██   ██  █████  ███████ ██   ██ 
+${O}██   ██    ██   ██ ██   ██ ██      ██   ██ 
+${G}██   ██    ███████ ███████ ███████ ███████ 
+${O}██   ██    ██   ██ ██   ██      ██ ██   ██ 
+${G}██████  ██ ██   ██ ██   ██ ███████ ██   ██ 
+                                           
+                                           
+
+${O}Coded By Mr. Onion
+${G}Website Link:https://mr0ni0n.blogspot.com
+${G}Telegram Link:t.me/mronion420
+"
+
+read -p "[+] Hash: " hash
+                 dec=$(curl -s "http://www.nitrxgen.net/md5db/${hash}")
+                 if [[ "$dec" = "" ]]
+                 then
+                   echo -e "${R}Failed Not Found hash${N}"
+                 else
+                   echo "Result: $dec"
+                 fi
+                 

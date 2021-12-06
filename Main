@@ -1,0 +1,96 @@
+#!/bin/bash
+clear
+N='\033[0m'
+R='\033[0;31m'
+G='\033[0;32m'
+O='\033[0;33m'
+  echo -e "
+
+${G}██████     ██   ██  █████  ███████ ██   ██ 
+${O}██   ██    ██   ██ ██   ██ ██      ██   ██ 
+${G}██   ██    ███████ ███████ ███████ ███████ 
+${O}██   ██    ██   ██ ██   ██      ██ ██   ██ 
+${G}██████  ██ ██   ██ ██   ██ ███████ ██   ██ 
+                                           
+                                           
+
+${O}Coded By Mr. Onion
+${G}Website Link:https://mr0ni0n.blogspot.com
+${G}Telegram Link:t.me/mronion420
+"
+echo -e "              |\033[7;37m Mr Onion ${N}|\n"
+echo -e "              |\033[7;32m Basic Hash Decrypt ${N}|\n"
+echo ""
+PS3='</MRX>:'
+options=( "Single Hash Decrypter" "Multi Hash Decrypter" "MD5 Decrypter With New Api" "Exit"
+)
+select opt in "${options[@]}"
+do
+    case $opt in
+        "Single Hash Decrypter")
+            clear
+N='\033[0m'
+R='\033[0;31m'
+G='\033[0;32m'
+O='\033[0;33m'
+  echo -e "
+${G}██████     ██   ██  █████  ███████ ██   ██ 
+${O}██   ██    ██   ██ ██   ██ ██      ██   ██ 
+${G}██   ██    ███████ ███████ ███████ ███████ 
+${O}██   ██    ██   ██ ██   ██      ██ ██   ██ 
+${G}██████  ██ ██   ██ ██   ██ ███████ ██   ██ 
+                                           
+                                           
+
+${O}Coded By Mr. Onion
+${G}Website Link:https://mr0ni0n.blogspot.com
+${G}Telegram Link:t.me/mronion420
+"
+
+
+read -p "[+] Hash: " hash
+                 dec=$(curl -s "http://www.nitrxgen.net/md5db/${hash}")
+                 if [[ "$dec" = "" ]]
+                 then
+                   echo -e "${R}Failed Not Found hash${N}"
+                 else
+                   echo "Result: $dec"
+                 fi
+            ;;
+        "Multi Hash Decrypter")
+            clear
+N='\033[0m'
+R='\033[0;31m'
+G='\033[0;32m'
+O='\033[0;33m'
+  echo -e "
+
+${G}██████     ██   ██  █████  ███████ ██   ██ 
+${O}██   ██    ██   ██ ██   ██ ██      ██   ██ 
+${G}██   ██    ███████ ███████ ███████ ███████ 
+${O}██   ██    ██   ██ ██   ██      ██ ██   ██ 
+${G}██████  ██ ██   ██ ██   ██ ███████ ██   ██ 
+                                           
+                                           
+
+${O}Coded By Mr. Onion
+${G}Website Link:https://mr0ni0n.blogspot.com
+${G}Telegram Link:t.me/mronion420
+"
+echo -e "              |\033[7;37m Mr. Onion ${N}|\n"
+echo -e "              |\033[7;32m Multi Hash Decrypter ${N}|\n"
+                 read -p "[</MRX>] list With Md5 Hash Ex:md5.txt  #: " file
+                 for hash in `cat $file`
+                 do
+                 dec=$(curl -A "Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:59.0) Gecko/20100101 Firefox/59.0" --max-time $time_out -s "http://www.nitrxgen.net/md5db/${hash}")
+                 if [ "$dec" = "" ];then
+                    echo "[?] Not Cracked: ${hash} "
+                 else [ "$dec" = "[[:punct:][:alnum:]]*" ]
+                     echo "$dec" >> cracked-$list.txt
+                     echo "[!] Cracked: ${hash} $del $dec"
+                 fi
+                 done
+            ;;
+            *) echo "invalid option $REPLY";;
+            esac
+            done
